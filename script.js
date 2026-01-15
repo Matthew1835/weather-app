@@ -1,3 +1,4 @@
+const iconImg = document.getElementById("weather-icon");
 const tempEl = document.getElementById("main-temperature");
 const feelsEl = document.getElementById("feels-like");
 const humidityEl = document.getElementById("humidity");
@@ -5,7 +6,6 @@ const windEl = document.getElementById("wind");
 const windGustEl = document.getElementById("wind-gust");
 const weatherEl = document.getElementById("weather-main");
 const locationEl = document.getElementById("location");
-const iconImg = document.getElementById("weather-icon");
 const dropdown = document.getElementById("city-dropdown")
 const getWeatherBtn = document.getElementById("get-weather-btn")
 
@@ -13,7 +13,7 @@ async function getWeather(city) {
     try {
         const response = await fetch(`https://weather-proxy.freecodecamp.rocks/api/city/${city}`);
         const weatherData = await response.json();
-        console.log(weatherData);
+        return weatherData;
     } catch (error) {
         console.log(error);
     }
@@ -21,14 +21,28 @@ async function getWeather(city) {
 
 async function showWeather(city) {
     try {
-        getWeather(city);
+        const data = await getWeather(city);
+        const { main, name, sys, weather, wind } = data;
+
+        locationEl.textContent = `${name}, ${sys.country}`
+
+        iconImg.setAttribute("src", weather[0].icon);
+        weatherEl.textContent = weather[0].main
+        tempEl.textContent = main.temp;
+        feelsEl.textContent = main.feels_like;
+
+        humidityEl.textContent = main.humidity;
+        windEl.textContent = wind.speed;
+        windGustEl.textContent = wind.gust;
+    
+        console.log(main)
     } catch (error) {
         alert("Something went wrong, please try again later.")
     }
 }
 
 getWeatherBtn.addEventListener("click", () => {
-    getWeather(dropdown.value);
+    showWeather(dropdown.value);
 })
 
 /**

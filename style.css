@@ -39,7 +39,77 @@ body {
     cursor: pointer;
     background-color: gray;
 }
+
 .display-container {
     background-color: bisque;
     border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
 }
+
+.location{
+    background-color: rgb(135, 72, 107);
+    height: 50px;
+    /* display: flex;
+    justify-content: center; */
+}
+
+.display-2 {
+    border: 1px solid black;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+.icon{
+    background-color: brown;
+    width: 70px;
+    height: 50px;
+}
+.weather{
+    background-color: rgb(100, 138, 137);
+    width: 70px;
+    height: 50px;
+}
+.temperature{
+    background-color: rgb(29, 214, 217);
+    width: 70px;
+    height: 50px;
+}
+.feels{
+    background-color: rgb(103, 108, 178);
+    width: 70px;
+    height: 50px;
+}
+
+.display-3 {
+    border: 1px solid black;
+    padding: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+.humidity{
+    background-color: rgb(51, 102, 40);
+    width: 70px;
+    height: 50px;
+}
+.wind{
+    background-color: rgb(77, 31, 100);
+    width: 70px;
+    height: 50px;
+}
+.gust{
+    background-color: rgb(187, 165, 66);
+    width: 70px;
+    height: 50px;
+}
+
+
+
+
+
