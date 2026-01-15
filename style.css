@@ -1,0 +1,45 @@
+body {
+    padding: 0;
+}
+.container-1 {
+    background-color: rgb(57, 175, 175);
+    height: 450px;
+    padding: 20px;
+}
+.container-2 {
+    background-color: gray;
+    border-radius: 30px;
+    /* height: 70%; */
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.select-container {
+    display: flex;
+    /* padding: 50px; */
+    justify-content: center;
+    /* background-color: aquamarine; */
+    height: 40px;
+    gap: 10px;
+}
+.dropdown {
+    border: none;
+    border-radius: 30px;
+    width: 60%;
+    padding-left: 10px;
+    /* margin-right: 10px; */
+}
+.weatherBtn {
+    border: none;
+    border-radius: 30px;
+    width: 23%;
+}
+.weatherBtn:hover {
+    cursor: pointer;
+    background-color: gray;
+}
+.display-container {
+    background-color: bisque;
+    border-radius: 30px;
+}
