@@ -24,7 +24,7 @@ async function showWeather(city) {
         const data = await getWeather(city);
         const { main, name, sys, weather, wind } = data;
 
-        locationEl.textContent = `${name}, ${sys.country}`
+        locationEl.textContent = `${name}, ${sys.country}`;
 
         iconImg.setAttribute("src", weather[0].icon);
         weatherEl.textContent = weather[0].main
