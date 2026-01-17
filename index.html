@@ -5,68 +5,61 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
     <link rel="stylesheet" href="style.css">
-    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous"> -->
 </head>
 <body>
     <div class="container-1">
-        <div class="container-2">
-            <div class="select-container">
-                <select class="dropdown" id="city-dropdown">
-                    <option value=""></option>
-                    <option value="new york">New York</option>
-                    <option value="los angeles">Los Angeles</option>
-                    <option value="chicago">Chicago</option>
-                    <option value="paris">Paris</option>
-                    <option value="tokyo">Tokyo</option>
-                    <option value="london">London</option>
-                </select>
-                <button class="weatherBtn" id="get-weather-btn">Get Weather</button>
+        <div class="select-container">
+            <select class="dropdown" id="city-dropdown">
+                <option value="" selected disabled>Select a city</option>
+                <option value="new york">New York</option>
+                <option value="los angeles">Los Angeles</option>
+                <option value="chicago">Chicago</option>
+                <option value="paris">Paris</option>
+                <option value="tokyo">Tokyo</option>
+                <option value="london">London</option>
+            </select>
+            <button class="weatherBtn" id="get-weather-btn">Get Weather</button>
+        </div>
+        <div class="display-container hidden">
+            <div class="location">
+                <h1 id="location">Hello World</h1>
             </div>
-            <div class="display-container">
-                <div class="location">
-                    <h1 id="location">Hello World</h1>
-                </div>
 
-                <div class="display-2">
-                    <div class="icon-weather-container">
-                        <img class="icon" id="weather-icon" src="" alt="">
-                        <div class="weather">
-                            <h2 id="weather-main"></h2>
-                        </div>
-                    </div>
-                    <div class="temperature">
-                        <h1 id="main-temperature"></h1>
-                    </div>
-                    <div class="feels">
-                        <small>Feels like: </small>
-                        <p id="feels-like"></p>
+            <div class="display-2">
+                <div class="icon-weather-container">
+                    <img class="icon" id="weather-icon" src="" alt="">
+                    <div class="weather">
+                        <h2 id="weather-main"></h2>
                     </div>
                 </div>
+                <div class="temperature">
+                    <h1 id="main-temperature"></h1>
+                </div>
+                <div class="feels">
+                    <small>Feels like </small>
+                    <p id="feels-like"></p>
+                </div>
+            </div>
 
-                <div class="display-3">
-                    <div class="humidity" id="humidity">
-                        humidity
-                    </div>
+            <div class="display-3">
+                <div class="humidity">
+                    <small>Humidity</small>
+                    <h3 id="humidity"></h3>
+                </div>
 
-                    <div class="wind" id="wind">
-                        wind speed
-                    </div>
+                <div class="wind">
+                    <small>Wind</small>
+                    <h3 id="wind"></h3>
+                </div>
 
-                    <div class="gust" id="wind-gust">
-                        wind gust
-                    </div>
+                <div class="gust">
+                    <small>Gust</small>
+                    <h3 id="wind-gust"></h3>
                 </div>
             </div>
         </div>
     </div>
 
-
-
-
-
-
-
-    <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script> -->
     <script src="./script.js"></script>
 </body>
 </html>

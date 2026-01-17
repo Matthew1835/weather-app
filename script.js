@@ -1,3 +1,7 @@
+const dropdown = document.getElementById("city-dropdown");
+const getWeatherBtn = document.getElementById("get-weather-btn");
+const displayContainer = document.querySelector(".display-container");
+
 const iconImg = document.getElementById("weather-icon");
 const tempEl = document.getElementById("main-temperature");
 const feelsEl = document.getElementById("feels-like");
@@ -6,8 +10,11 @@ const windEl = document.getElementById("wind");
 const windGustEl = document.getElementById("wind-gust");
 const weatherEl = document.getElementById("weather-main");
 const locationEl = document.getElementById("location");
-const dropdown = document.getElementById("city-dropdown")
-const getWeatherBtn = document.getElementById("get-weather-btn")
+
+const hour = new Date().getHours();
+const isDaytime = hour >= 6 && hour < 18;
+
+document.body.classList.add(isDaytime ? "light" : "dark");
 
 async function getWeather(city) {
     try {
@@ -20,38 +27,39 @@ async function getWeather(city) {
 }
 
 async function showWeather(city) {
+    if (!city) {
+        displayContainer.classList.add("hidden");
+        alert("Please select a city");
+        return;
+    }
+
     try {
+        displayContainer.classList.remove("hidden");
+
         const data = await getWeather(city);
+        if (!data) throw new Error("No weather data");
+
         const { main, name, sys, weather, wind } = data;
 
         locationEl.textContent = `${name}, ${sys.country}`;
 
-        iconImg.setAttribute("src", weather[0].icon);
-        weatherEl.textContent = weather[0].main
-        tempEl.textContent = main.temp;
-        feelsEl.textContent = main.feels_like;
+        if (weather[0]?.icon) {
+            iconImg.src = weather[0].icon;
+        }
 
-        humidityEl.textContent = main.humidity;
-        windEl.textContent = wind.speed;
-        windGustEl.textContent = wind.gust;
-    
-        console.log(main)
+        weatherEl.textContent = (weather[0].main) ? weather[0].main : "N/A";
+        tempEl.textContent = (main.temp) ? `${main.temp}° C` : "N/A";
+        feelsEl.textContent = (main.feels_like) ? `${main.feels_like}° C` : "N/A";
+
+        humidityEl.textContent = (main.humidity) ? `${main.humidity}%` : "N/A";
+        windEl.textContent = (wind.speed) ? `${wind.speed} m/s` : "N/A";
+        windGustEl.textContent = (wind.gust) ? `${wind.gust} m/s` : "N/A";
     } catch (error) {
         alert("Something went wrong, please try again later.")
     }
 }
 
+
 getWeatherBtn.addEventListener("click", () => {
     showWeather(dropdown.value);
 })
-
-/**
- * weather-icon - weather[0].icon
- * main-temperature - main.temp
- * feels-like - main.feels_like
- * humidity - main.humidity
- * wind - wind.speed
- * wind-gust - wind.gust
- * weather-main - weather[0].main
- * location - name, sys.country
- */
