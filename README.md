@@ -1,6 +1,6 @@
 # Weather App
 
-An enhanced (UI and function) FCC's Weather project that allows users to view weather information for a selected city from the dropdown list.
+A responsive Weather project that allows users to view weather information for a selected city from the dropdown list.
 
 🔗 Live Demo: https://matthew1835.github.io/weather-app/
 
